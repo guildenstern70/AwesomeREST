@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "pwdvalidation.js",
+  "sourceRoot": "",
+  "sources": [
+    "pwdvalidation.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;AAAA,MAAA,OAAA,EAAA,SAAA,EAAA;;EAAA,OAAA,GAAU;;EAEV,SAAA,GAAY,QAAA,CAAA,CAAA;IACV,CAAA,CAAE,eAAF,CAAkB,CAAC,IAAnB,CAAA;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,QAAnB,CAA4B,WAA5B;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,QAAnB,CAA4B,cAA5B;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,QAAnB,CAA4B,WAA5B;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,QAAnB,CAA4B,cAA5B;EALU;;EAQZ,SAAA,GAAY,QAAA,CAAA,CAAA;IACV,CAAA,CAAE,eAAF,CAAkB,CAAC,IAAnB,CAAA;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,WAAnB,CAA+B,WAA/B,EAA4C,EAA5C;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,WAAnB,CAA+B,cAA/B,EAA+C,EAA/C;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,WAAnB,CAA+B,WAA/B,EAA4C,EAA5C;IACA,CAAA,CAAE,eAAF,CAAkB,CAAC,WAAnB,CAA+B,cAA/B,EAA+C,EAA/C;EALU;;EAQZ,OAAO,CAAC,UAAR,GAAqB,QAAA,CAAA,CAAA;AACnB,QAAA,IAAA,EAAA;IAAA,IAAA,GAAO,CAAA,CAAE,cAAF,CAAiB,CAAC,GAAlB,CAAA;IACP,IAAA,GAAO,CAAA,CAAE,eAAF,CAAkB,CAAC,GAAnB,CAAA;IACP,IAAG,IAAI,CAAC,MAAL,GAAc,CAAd,IAAmB,IAAI,CAAC,MAAL,GAAc,CAApC;MACE,CAAA,CAAE,eAAF,CAAkB,CAAC,IAAnB,CAAwB,qBAAxB;MACA,SAAA,CAAA;AACA,aAAO,MAHT;;IAIA,IAAG,IAAA,KAAQ,IAAX;MACE,OAAO,CAAC,GAAR,CAAY,4BAAZ;MACA,CAAA,CAAE,eAAF,CAAkB,CAAC,MAAnB,CAAA,EAFF;KAAA,MAAA;MAIE,OAAO,CAAC,GAAR,CAAY,wBAAZ;MACA,SAAA,CAAA;AACA,aAAO,MANT;;EAPmB;;EAgBrB,CAAA,CAAE,QAAA,CAAA,CAAA;IACA,CAAA,CAAE,cAAF,CAAiB,CAAC,KAAlB,CAAwB,QAAA,CAAA,CAAA;MACtB,CAAA,CAAE,cAAF,CAAiB,CAAC,GAAlB,CAAsB,EAAtB;MACA,CAAA,CAAE,eAAF,CAAkB,CAAC,GAAnB,CAAuB,EAAvB;MACA,SAAA,CAAA;IAHsB,CAAxB;IAKA,SAAA,CAAA;EANA,CAAF;;EASA,OAAA,GAAU;AA3CV",
+  "sourcesContent": [
+    "exports = this\n\nshowError = ->\n  $('#errorMessage').show()\n  $('#password1grp').addClass 'has-error'\n  $('#password1grp').addClass 'has-feedback'\n  $('#password2grp').addClass 'has-error'\n  $('#password2grp').addClass 'has-feedback'\n  return\n\nhideError = ->\n  $('#errorMessage').hide()\n  $('#password1grp').removeClass 'has-error', ''\n  $('#password1grp').removeClass 'has-feedback', ''\n  $('#password2grp').removeClass 'has-error', ''\n  $('#password2grp').removeClass 'has-feedback', ''\n  return\n\nexports.submitForm = ->\n  pwd1 = $('#newPassword').val()\n  pwd2 = $('#confirmation').val()\n  if pwd1.length < 8 or pwd2.length < 8\n    $('#errorMessage').text 'Minimo 8 caratteri.'\n    showError()\n    return false\n  if pwd1 == pwd2\n    console.log 'Password validation passed'\n    $('#passwordForm').submit()\n  else\n    console.log 'Password validation KO'\n    showError()\n    return false\n  return\n\n$ ->\n  $('#newPassword').click ->\n    $('#newPassword').val ''\n    $('#confirmation').val ''\n    hideError()\n    return\n  hideError()\n  return\n\nexports = submitForm\n"
+  ]
+}
