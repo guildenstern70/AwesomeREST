@@ -1,0 +1,10 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true,
+    "apiInfo": {
+      "title": "PagoPA Fake API",
+      "description": "Fake Integration Services for PagoPA systems"
+    }
+  }
+}

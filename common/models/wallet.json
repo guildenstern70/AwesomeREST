@@ -1,0 +1,41 @@
+{
+  "name": "Wallet",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "lastUsage": {
+      "type": "date"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "expires": {
+      "type": "date",
+      "required": true
+    },
+    "tag": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "default": "Credit Card"
+    }
+  },
+  "validations": [],
+  "relations": {
+      "transaction": {
+            "type": "hasMany",
+            "model": "transaction",
+            "foreignKey": ""
+        }
+  },
+  "acls": [],
+  "methods": {}
+}
