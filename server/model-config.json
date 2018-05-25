@@ -16,11 +16,15 @@
   "User": {
     "dataSource": "db"
   },
+  "AppUser": {
+    "dataSource": "db",
+    "public": true
+  },
   "AccessToken": {
     "dataSource": "db",
     "public": false,
     "relations": {
-      "AppUser": {
+      "user": {
         "type": "belongsTo",
         "model": "AppUser",
         "foreignKey": "userId"
