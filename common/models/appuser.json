@@ -7,8 +7,13 @@
   },
   "properties": {
     "email": {
-      "type": "string",
-      "required": true
+      "type": "string"
+    },
+    "fullname": {
+      "type": "string"
+    },
+    "fiscalcode": {
+      "type": "string"
     },
     "password": {
       "type": "string",
@@ -24,6 +29,11 @@
       "options": {
         "disableInclude": true
       }
+    },
+    "wallets": {
+      "type": "hasMany",
+      "model": "Wallet",
+      "foreignKey": ""
     }
   },
   "acls": [

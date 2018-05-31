@@ -13,9 +13,6 @@
     "lastUsage": {
       "type": "date"
     },
-    "owner": {
-      "type": "string"
-    },
     "expires": {
       "type": "date",
       "required": true
@@ -30,9 +27,9 @@
   },
   "validations": [],
   "relations": {
-    "transaction": {
+    "transactions": {
       "type": "hasMany",
-      "model": "transaction",
+      "model": "Transaction",
       "foreignKey": ""
     }
   },
