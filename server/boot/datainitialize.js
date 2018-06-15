@@ -5,7 +5,7 @@ module.exports = function (app)
 
   let User = app.models.AppUser;
   let Wallet = app.models.Wallet;
-
+  let CreditCard = app.models.CreditCard;
 
   User.create({
       email: 'admin@fakepagopa.it',
@@ -22,37 +22,28 @@ module.exports = function (app)
       console.log('Created User > ' + JSON.stringify(userInstance));
 
       Wallet.create({
-          number: '3759 876543 02001',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
+          favourite: false,
+          idPagamentoFromEC: 'X3298K',
+          lastUsage: new Date(2021, 6, 15),
+          matchedPsp: true,
+          pspEditable: false,
+          userId: userInstance.id,
         },
         function (err, walletInstance)
         {
+          walletInstance.creditCard.create({
+            brandLogo: 'AMERICAN EXPRESS',
+            expireMonth: 10,
+            expireYear: 2020,
+            flag3dsVerified: true,
+            holder: 'ADMINISTRATOR',
+            pan: '3759 876543 02001',
+            securityCode: '123'
+          });
           console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+        }
+      );
 
-      Wallet.create({
-          number: '4324 5201 6988 0454',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
-
-      Wallet.create({
-          number: '5400 4708 6234 2849',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
 
     });
 
@@ -70,38 +61,103 @@ module.exports = function (app)
       }
       console.log('Created User > ' + JSON.stringify(userInstance));
 
-      Wallet.create({
-          number: '3759 876544 02001',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'AMERICAN EXPRESS',
+          expireMonth: 10,
+          expireYear: 2020,
+          flag3dsVerified: true,
+          holder: 'ALESSIO SALTARIN',
+          id: 1,
+          pan: '3759 876543 02001',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
 
-      Wallet.create({
-          number: '4324 5201 6989 0454',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
 
-      Wallet.create({
-          number: '5400 4708 6235 2849',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+        }
+      );
+
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'VISA',
+          expireMonth: 4,
+          expireYear: 2018,
+          flag3dsVerified: true,
+          holder: 'ALESSIO SALTARIN',
+          id: 2,
+          pan: '4324 5201 6989 0454',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
+      CreditCard.create(
+        {
+          brandLogo: 'MASTERCARD',
+          expireMonth: 9,
+          expireYear: 2019,
+          flag3dsVerified: true,
+          holder: 'ALESSIO SALTARIN',
+          id: 3,
+          pan: '5400 4708 6235 2849',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
 
     });
 
@@ -119,38 +175,104 @@ module.exports = function (app)
       }
       console.log('Created User > ' + JSON.stringify(userInstance));
 
-      Wallet.create({
-          number: '3759 876545 02001',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'AMERICAN EXPRESS',
+          expireMonth: 10,
+          expireYear: 2020,
+          flag3dsVerified: true,
+          holder: 'FLAVIO GIOBERGIA',
+          id: 4,
+          pan: '3759 876543 02001',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
 
-      Wallet.create({
-          number: '4324 5201 6980 0454',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
 
-      Wallet.create({
-          number: '5400 4708 6236 2849',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+        }
+      );
+
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'VISA',
+          expireMonth: 4,
+          expireYear: 2018,
+          flag3dsVerified: true,
+          holder: 'FLAVIO GIOBERGIA',
+          id: 5,
+          pan: '4324 5201 6989 0454',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
+      CreditCard.create(
+        {
+          brandLogo: 'MASTERCARD',
+          expireMonth: 9,
+          expireYear: 2019,
+          flag3dsVerified: true,
+          holder: 'FLAVIO GIOBERGIA',
+          id: 6,
+          pan: '5400 4708 6235 2849',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
 
     });
 
@@ -168,38 +290,105 @@ module.exports = function (app)
       }
       console.log('Created User > ' + JSON.stringify(userInstance));
 
-      Wallet.create({
-          number: '3759 876546 02001',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'AMERICAN EXPRESS',
+          expireMonth: 10,
+          expireYear: 2020,
+          flag3dsVerified: true,
+          holder: 'MARIA ROSSINI',
+          id: 7,
+          pan: '3759 876543 02021',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
 
-      Wallet.create({
-          number: '4324 5201 6981 0454',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
 
-      Wallet.create({
-          number: '5400 4708 6237 2849',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+        }
+      );
+
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'VISA',
+          expireMonth: 4,
+          expireYear: 2018,
+          flag3dsVerified: true,
+          holder: 'MARIA ROSSINI',
+          id: 8,
+          pan: '4324 5201 6989 0475',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
+      CreditCard.create(
+        {
+          brandLogo: 'MASTERCARD',
+          expireMonth: 9,
+          expireYear: 2019,
+          flag3dsVerified: true,
+          holder: 'MARIA ROSSINI',
+          id: 9,
+          pan: '5400 4708 6235 2899',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
 
     });
 
@@ -217,38 +406,104 @@ module.exports = function (app)
       }
       console.log('Created User > ' + JSON.stringify(userInstance));
 
-      Wallet.create({
-          number: '3759 876547 02001',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'AMERICAN EXPRESS',
+          expireMonth: 10,
+          expireYear: 2020,
+          flag3dsVerified: true,
+          holder: 'ELENA ZAMBRELLI',
+          id: 10,
+          pan: '3759 876543 02061',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
 
-      Wallet.create({
-          number: '4324 5201 6982 0454',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
-        {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+        }
+      );
 
-      Wallet.create({
-          number: '5400 4708 6238 2849',
-          lastUsage: new Date(2018, 5, 15),
-          appUserId: userInstance.id,
-          expires: new Date(2021, 6, 15)
-        },
-        function (err, walletInstance)
+      CreditCard.create(
         {
-          console.log('Created Wallet > ' + JSON.stringify(walletInstance));
-        });
+          brandLogo: 'VISA',
+          expireMonth: 4,
+          expireYear: 2018,
+          flag3dsVerified: true,
+          holder: 'ELENA ZAMBRELLI',
+          id: 11,
+          pan: '4324 5201 6989 0435',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
+      CreditCard.create(
+        {
+          brandLogo: 'MASTERCARD',
+          expireMonth: 9,
+          expireYear: 2019,
+          flag3dsVerified: true,
+          holder: 'ELENA ZAMBRELLI',
+          id: 12,
+          pan: '5400 4708 6235 2829',
+          securityCode: '123'
+        },
+        function (err, creditCardInstance)
+        {
+
+          console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
+          Wallet.create({
+              favourite: false,
+              idPagamentoFromEC: 'X3298K',
+              lastUsage: new Date(2021, 6, 15),
+              matchedPsp: true,
+              pspEditable: false,
+              userId: userInstance.id,
+            },
+            function (err, walletInstance)
+            {
+              walletInstance.creditCard.create(creditCardInstance);
+              console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+            }
+          );
+
+        }
+      );
+
     });
 
 

@@ -1,0 +1,39 @@
+{
+  "name": "CreditCard",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "brandLogo": {
+      "type": "string"
+    },
+    "expireMonth": {
+      "type": "string"
+    },
+    "expireYear": {
+      "type": "string"
+    },
+    "flag3dsVerified": {
+      "type": "boolean",
+      "default": true
+    },
+    "holder": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number"
+    },
+    "pan": {
+      "type": "string"
+    },
+    "securityCode": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

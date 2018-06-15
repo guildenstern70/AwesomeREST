@@ -39,7 +39,14 @@ Notice that you call service using "me" vanity code:
 
     yarn install
     
-#### Deploy to Bluemix
+    
+#### Toolchain
+
+    https://console.bluemix.net/devops/pipelines/48090c86-b6a1-41c8-8756-5c387f339b82?env_id=ibm:yp:us-south
+    
+Every push is automatically deployed.
+        
+#### Manual Deploy to Bluemix
 
     bluemix api https://api.eu-de.bluemix.net
     bluemix login  -o alessiosaltarin@it.ibm.com -s Dev -sso
