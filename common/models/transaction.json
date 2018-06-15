@@ -6,37 +6,81 @@
     "validateUpsert": true
   },
   "properties": {
-    "datetime": {
+    "created": {
       "type": "date",
       "required": true
     },
-    "subject": {
+    "description": {
       "type": "string",
       "required": true
     },
-    "recipient": {
-      "type": "string",
-      "required": true
-    },
-    "amount": {
-      "type": "number",
-      "required": true
-    },
-    "currency": {
-      "type": "string",
+    "error": {
+      "type": "boolean",
       "required": true,
-      "default": "EUR"
+      "default": false
     },
-    "transactionCost": {
+    "idPayment": {
       "type": "number"
     },
-    "isNew": {
+    "idStatus": {
+      "type": "number"
+    },
+    "merchant": {
+      "type": "string"
+    },
+    "nodoIdPayment": {
+      "type": "string"
+    },
+    "paymentModel": {
+      "type": "number"
+    },
+    "statusMessage": {
+      "type": "string"
+    },
+    "success": {
       "type": "boolean",
-      "default": false
+      "default": true
+    },
+    "updated": {
+      "type": "date"
+    },
+    "urlCheckout3ds": {
+      "type": "string"
+    },
+    "urlRedirectPsp": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "amount": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "Amount",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "fee": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "Fee",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "grandTotal": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "GrandTotal",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
   "acls": [
     {
       "accessType": "*",

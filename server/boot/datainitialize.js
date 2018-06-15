@@ -6,6 +6,7 @@ module.exports = function (app)
   let User = app.models.AppUser;
   let Wallet = app.models.Wallet;
   let CreditCard = app.models.CreditCard;
+  let Transaction = app.models.Transaction;
 
   User.create({
       email: 'admin@fakepagopa.it',
@@ -88,6 +89,48 @@ module.exports = function (app)
             {
               walletInstance.creditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+
+              const amount = {
+                amount: 20000,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              const fee = {
+                amount: 50,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              const grandTotal = {
+                amount: 20050,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              Transaction.create({
+                  Amount: amount,
+                  created: new Date(2018, 6, 15),
+                  description: 'Pagamento TARI',
+                  error: false,
+                  Fee: fee,
+                  GrandTotal: grandTotal,
+                  idPayment: 2,
+                  idStatus: 0,
+                  merchant: 'Intesa',
+                  nodoIdPayment: '0Z',
+                  paymentModel: 12,
+                  statusMessage: 'In process',
+                  success: false,
+                  walletId: walletInstance.id
+                },
+                function (err, transactionInstance) {
+                  console.log('Created Transaction > ' + JSON.stringify(transactionInstance));
+                }
+              )
             }
           );
 
@@ -235,6 +278,48 @@ module.exports = function (app)
             {
               walletInstance.creditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
+
+              const amount = {
+                amount: 25500,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              const fee = {
+                amount: 150,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              const grandTotal = {
+                amount: 255650,
+                currency: 'EUR',
+                currencyNumber: 0,
+                decimalDigits: 2
+              };
+
+              Transaction.create({
+                  Amount: amount,
+                  created: new Date(2018, 6, 15),
+                  description: 'Multa eccesso velocità',
+                  error: false,
+                  Fee: fee,
+                  GrandTotal: grandTotal,
+                  idPayment: 2,
+                  idStatus: 0,
+                  merchant: 'Intesa',
+                  nodoIdPayment: '0Z',
+                  paymentModel: 12,
+                  statusMessage: 'In process',
+                  success: false,
+                  walletId: walletInstance.id
+                },
+                function (err, transactionInstance) {
+                  console.log('Created Transaction > ' + JSON.stringify(transactionInstance));
+                }
+              )
             }
           );
 

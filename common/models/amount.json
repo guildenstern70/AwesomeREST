@@ -1,0 +1,31 @@
+{
+  "name": "Amount",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "amount": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR"
+    },
+    "currencyNumber": {
+      "type": "number"
+    },
+    "decimalDigits": {
+      "type": "number",
+      "required": true,
+      "default": 2
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
