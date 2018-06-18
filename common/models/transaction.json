@@ -79,6 +79,20 @@
         "validate": true,
         "forceId": false
       }
+    },
+    "entity": {
+      "type": "embedsOne",
+      "model": "Entity",
+      "property": "Entity",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "payments": {
+      "type": "hasMany",
+      "model": "Payment",
+      "foreignKey": "idPayment"
     }
   },
   "acls": [

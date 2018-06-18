@@ -34,6 +34,11 @@
       "type": "hasMany",
       "model": "Wallet",
       "foreignKey": "userId"
+    },
+    "notices": {
+      "type": "hasMany",
+      "model": "Notice",
+      "foreignKey": "userId"
     }
   },
   "acls": [

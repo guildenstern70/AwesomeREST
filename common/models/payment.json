@@ -1,0 +1,43 @@
+{
+  "name": "Payment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "bolloDigitale": {
+      "type": "boolean"
+    },
+    "cancelled": {
+      "type": "boolean",
+      "default": false
+    },
+    "email": {
+      "type": "string"
+    },
+    "receiver": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "urlRedirectEc": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "amount": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "Amount",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

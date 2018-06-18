@@ -62,5 +62,17 @@
   "Amount": {
     "dataSource": "db",
     "public": true
+  },
+  "Payment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Notice": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Entity": {
+    "dataSource": "db",
+    "public": true
   }
 }

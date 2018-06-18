@@ -1,0 +1,72 @@
+{
+  "name": "Notice",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "paymentReason": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "executionDate": {
+      "type": "date"
+    },
+    "expirationDate": {
+      "type": "date"
+    },
+    "tranche": {
+      "type": "string"
+    },
+    "cbill": {
+      "type": "string"
+    },
+    "iuv": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "notifiedAmount": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "NotifiedAmount",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "currentAmount": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "CurrentAmount",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "fee": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "Fee",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "totalAmount": {
+      "type": "embedsOne",
+      "model": "Amount",
+      "property": "TotalAmount",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
