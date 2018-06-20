@@ -143,13 +143,13 @@ module.exports = function (app)
               };
 
               Transaction.create({
-                  Amount: amount,
+                  amount: amount,
                   created: new Date(2018, 6, 15),
                   description: 'Pagamento TARI',
-                  Entity: Entities[0],
+                  entity: Entities[0],
                   error: false,
-                  Fee: fee,
-                  GrandTotal: grandTotal,
+                  fee: fee,
+                  grandTotal: grandTotal,
                   idPayment: 2,
                   idStatus: 0,
                   merchant: 'Intesa',
@@ -256,7 +256,7 @@ module.exports = function (app)
       };
 
       const totalAmount = {
-        amount: currentAmount+fee,
+        amount: currentAmount.amount+fee.amount,
         currency: "EUR",
         currencyNumber: 0,
         decimalDigits: 2,
@@ -272,10 +272,10 @@ module.exports = function (app)
           tranche: 'Unica',
           cbill: 'AOE02',
           iuv: '11111182909821080',
-          NotifiedAmount: notifiedAmount,
-          CurrentAmount: currentAmount,
-          Fee: fee,
-          TotalAmout: totalAmount,
+          notifiedAmount: notifiedAmount,
+          currentAmount: currentAmount,
+          fee: fee,
+          totalAmout: totalAmount,
           userId: userInstance.id,
         }, function (err, noticeInstance)
         {
@@ -386,13 +386,13 @@ module.exports = function (app)
               };
 
               Transaction.create({
-                  Amount: amount,
+                  amount: amount,
                   created: new Date(2018, 6, 15),
                   description: 'Multa eccesso velocità',
-                  Entity: Entities[1],
+                  entity: Entities[1],
                   error: false,
-                  Fee: fee,
-                  GrandTotal: grandTotal,
+                  fee: fee,
+                  grandTotal: grandTotal,
                   idPayment: 2,
                   idStatus: 0,
                   merchant: 'Intesa',
