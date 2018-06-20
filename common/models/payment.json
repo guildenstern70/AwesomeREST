@@ -28,10 +28,10 @@
   },
   "validations": [],
   "relations": {
-    "amount": {
+    "Amount": {
       "type": "embedsOne",
       "model": "Amount",
-      "property": "Amount",
+      "property": "amount",
       "options": {
         "validate": true,
         "forceId": false

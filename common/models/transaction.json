@@ -53,37 +53,37 @@
   },
   "validations": [],
   "relations": {
-    "amount": {
+    "Amount": {
       "type": "embedsOne",
       "model": "Amount",
-      "property": "Amount",
+      "property": "amount",
       "options": {
         "validate": true,
         "forceId": false
       }
     },
-    "fee": {
+    "Fee": {
       "type": "embedsOne",
       "model": "Amount",
-      "property": "Fee",
+      "property": "fee",
       "options": {
         "validate": true,
         "forceId": false
       }
     },
-    "grandTotal": {
+    "GrandTotal": {
       "type": "embedsOne",
       "model": "Amount",
-      "property": "GrandTotal",
+      "property": "grandTotal",
       "options": {
         "validate": true,
         "forceId": false
       }
     },
-    "entity": {
+    "Entity": {
       "type": "embedsOne",
       "model": "Entity",
-      "property": "Entity",
+      "property": "entity",
       "options": {
         "validate": true,
         "forceId": false

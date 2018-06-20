@@ -34,10 +34,10 @@
       "model": "Transaction",
       "foreignKey": ""
     },
-    "creditCard": {
+    "CreditCard": {
       "type": "embedsOne",
       "model": "CreditCard",
-      "property": "CreditCard",
+      "property": "creditCard",
       "options": {
         "validate": true,
         "forceId": false,

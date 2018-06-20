@@ -56,15 +56,15 @@ module.exports = function (app)
       Wallet.create({
           favourite: false,
           idPagamentoFromEC: 'X3298K',
-          lastUsage: new Date(2021, 6, 15),
+          lastUsage: new Date(2018, 6, 15),
           matchedPsp: true,
           pspEditable: false,
           userId: userInstance.id,
         },
         function (err, walletInstance)
         {
-          walletInstance.creditCard.create({
-            brandLogo: 'AMERICAN EXPRESS',
+          walletInstance.CreditCard.create({
+            brandLogo: 'AMEX',
             expireMonth: 10,
             expireYear: 2020,
             flag3dsVerified: true,
@@ -95,7 +95,7 @@ module.exports = function (app)
 
       CreditCard.create(
         {
-          brandLogo: 'AMERICAN EXPRESS',
+          brandLogo: 'AMEX',
           expireMonth: 10,
           expireYear: 2020,
           flag3dsVerified: true,
@@ -111,14 +111,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
 
               const amount = {
@@ -187,14 +187,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -219,14 +219,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -305,7 +305,7 @@ module.exports = function (app)
 
       CreditCard.create(
         {
-          brandLogo: 'AMERICAN EXPRESS',
+          brandLogo: 'AMEX',
           expireMonth: 10,
           expireYear: 2020,
           flag3dsVerified: true,
@@ -321,14 +321,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -354,14 +354,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
 
               const amount = {
@@ -425,23 +425,21 @@ module.exports = function (app)
         },
         function (err, creditCardInstance)
         {
-
           console.log('Created CreditCard > ' + JSON.stringify(creditCardInstance));
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
-
         }
       );
 
@@ -463,7 +461,7 @@ module.exports = function (app)
 
       CreditCard.create(
         {
-          brandLogo: 'AMERICAN EXPRESS',
+          brandLogo: 'AMEX',
           expireMonth: 10,
           expireYear: 2020,
           flag3dsVerified: true,
@@ -479,14 +477,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -512,14 +510,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -545,14 +543,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -579,7 +577,7 @@ module.exports = function (app)
 
       CreditCard.create(
         {
-          brandLogo: 'AMERICAN EXPRESS',
+          brandLogo: 'AMEX',
           expireMonth: 10,
           expireYear: 2020,
           flag3dsVerified: true,
@@ -594,14 +592,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -627,14 +625,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
@@ -660,14 +658,14 @@ module.exports = function (app)
           Wallet.create({
               favourite: false,
               idPagamentoFromEC: 'X3298K',
-              lastUsage: new Date(2021, 6, 15),
+              lastUsage: new Date(2018, 6, 15),
               matchedPsp: true,
               pspEditable: false,
               userId: userInstance.id,
             },
             function (err, walletInstance)
             {
-              walletInstance.creditCard.create(creditCardInstance);
+              walletInstance.CreditCard.create(creditCardInstance);
               console.log('Created Wallet > ' + JSON.stringify(walletInstance));
             }
           );
